@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Drawing App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🎨 Hand Gesture Drawing App</h1>
+    
+    <div class="container">
+        <div>
+            <h3>Camera Feed</h3>
+            <video id="videoElement" width="320" height="240" autoplay muted></video>
+        </div>
+        <div>
+            <h3>Drawing Canvas with Live Camera Feed</h3>
+            <div class="canvas-container">
+                <video id="backgroundVideo" width="640" height="480" autoplay muted></video>
+                <canvas id="drawingCanvas" width="640" height="480"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button id="startBtn" onclick="startCamera()">Start Camera</button>
+        <button id="clearBtn" onclick="clearCanvas()">Clear Canvas</button>
+        <button id="toggleDrawingBtn" onclick="toggleDrawing()">Toggle Drawing: ON</button>
+    </div>
+    
+    <div class="status" id="status">
+        Status: Click "Start Camera" to begin
+    </div>
+    
+    <div class="instructions">
+        <h3>How to Use:</h3>
+        <ul>
+            <li><strong>Point with your index finger</strong> - The app tracks your index fingertip</li>
+            <li><strong>Make a fist</strong> - Stop drawing (pen up)</li>
+            <li><strong>Point again</strong> - Start drawing (pen down)</li>
+            <li><strong>Move your hand</strong> - Draw lines by moving your pointing finger</li>
+            <li><strong>Clear Canvas</strong> - Use the button to clear your drawing</li>
+        </ul>
+        <p><strong>Note:</strong> Make sure you're in good lighting and your hand is clearly visible to the camera.</p>
+    </div>
+
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
